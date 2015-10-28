@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :groups
   resources :user_groups
 
+  root 'users#index'
 end
