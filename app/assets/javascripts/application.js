@@ -18,7 +18,7 @@
 //= require bootstrap-sprockets
 
 $(document).ready(function(){
-  $("tr[data-link]").click(function() {
+  $("ul[data-link]").click(function() {
     window.location = this.dataset.link
   });
 })

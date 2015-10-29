@@ -5,17 +5,14 @@
   <div class="col-md-3">
     <div class="row">
       <div class="col-md-12 user-info">
-        <p>
-          <%= @user.full_name %>
-        </p>
-        <p>
-          <strong>Email:</strong>
-          <%= @user.email %>
-        </p>
-        <p>
-          <strong>Following:</strong>
-          <%= @user.following.count %>
-        </p>
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading"><%= @user.full_name %></div>
+            <ul class="list-group">
+              <li class="list-group-item">Email: <%= @user.email %></li>
+              <li class="list-group-item">Following: <%= @user.following.count %></li>
+            </ul>
+        </div>
       </div>
     </div>
   </div> <!-- End of 3-col div -->
@@ -23,21 +20,17 @@
   <div class="col-md-5">
     <div class="row">
       <div class="col-md-12">
-        <table class="table table-border table-hover trending-table">
-          <thead>
-            <tr>
-              <th>Trending Conversations</th>
-            </tr>
-          </thead>
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Trending Conversations</div>
 
-          <tbody>
-            <% Conversation.all.each do |conversation| %>
-              <tr data-link="<%= conversation_path(conversation) %>">
-                <td><%= conversation.title %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+          <!-- List group -->
+          <% Conversation.all.each do |conversation| %>
+            <ul class="list-group" data-link="<%= conversation_path(conversation) %>">
+              <li class="list-group-item"><%= conversation.title %></li>
+            </ul>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -45,48 +38,37 @@
   <div class="col-md-4">
     <div class="row">
       <div class="col-md-12">
-        <table class="table table-border table-hover groups-table">
-          <thead>
-            <tr>
-              <th>Groups</th>
-            </tr>
-          </thead>
+          <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Groups</div>
 
-          <tbody>
+            <!-- List group -->
             <% @user.groups.each do |group| %>
-              <tr data-link="<%= group_path(group) %>">
-                <td><%= group.name %></td>
-              </tr>
+              <ul class="list-group" data-link="<%= group_path(group) %>">
+                <li class="list-group-item"><%= group.name %></li>
+              </ul>
             <% end %>
-          </tbody>
-        </table>
+          </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
         <table class="table table-border table-hover conversations-table">
-          <thead>
-            <tr>
-              <th>Conversations</th>
-            </tr>
-          </thead>
 
-          <tbody>
+          <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Conversations</div>
+
+            <!-- List group -->
             <% @user.conversations.each do |conversation| %>
-              <tr data-link="<%= conversation_path(conversation) %>">
-                <td><%= conversation.title %></td>
-              </tr>
+              <ul class="list-group" data-link="<%= conversation_path(conversation) %>">
+                <li class="list-group-item"><%= conversation.title %></li>
+              </ul>
             <% end %>
-          </tbody>
-        </table>
+          </div>
       </div>
     </div>
   </div>
 
 </div>
-
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

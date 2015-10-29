@@ -1,9 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<div class="col-md-12">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading"><strong>Group:</strong> <%= @group.name %> </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Group Members</div>
+
+            <!-- List group -->
+            <% @group.users.each do |user| %>
+              <ul class="list-group" data-link="<%= user_path(user) %>">
+                <li class="list-group-item"><%= user.full_name %></li>
+              </ul>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Conversations</div>
+
+          <!-- List group -->
+          <% @group.conversations.each do |conversation| %>
+            <ul class="list-group" data-link="<%= conversation_path(conversation) %>">
+              <li class="list-group-item"><%= conversation.title %></li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

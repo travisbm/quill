@@ -21,15 +21,15 @@ end
   group = Group.create!(name: name)
 
   5.times do
-    title = Faker::Lorem.word
+    title = Faker::Book.title
     group.conversations.build(title: title)
   end
 
   group.save!
 end
 
-100.times do
-  user_id = rand(1..26)
+25.times do |n|
+  user_id = n + 1
   group_id = rand(1..3)
 
   UserGroup.create!(user_id: user_id,
