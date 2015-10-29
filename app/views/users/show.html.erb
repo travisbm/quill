@@ -1,24 +1,92 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<div class="row">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+  <div class="col-md-3">
+    <div class="row">
+      <div class="col-md-12 user-info">
+        <p>
+          <%= @user.full_name %>
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </p>
+        <p>
+          <strong>Following:</strong>
+          <%= @user.following.count %>
+        </p>
+      </div>
+    </div>
+  </div> <!-- End of 3-col div -->
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <div class="col-md-5">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-border table-hover trending-table">
+          <thead>
+            <tr>
+              <th>Trending Conversations</th>
+            </tr>
+          </thead>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+          <tbody>
+            <% Conversation.all.each do |conversation| %>
+              <tr data-link="<%= conversation_path(conversation) %>">
+                <td><%= conversation.title %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-border table-hover groups-table">
+          <thead>
+            <tr>
+              <th>Groups</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @user.groups.each do |group| %>
+              <tr data-link="<%= group_path(group) %>">
+                <td><%= group.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-border table-hover conversations-table">
+          <thead>
+            <tr>
+              <th>Conversations</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @user.conversations.each do |conversation| %>
+              <tr data-link="<%= conversation_path(conversation) %>">
+                <td><%= conversation.title %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
