@@ -1,7 +1,7 @@
 User.create!(first_name: 'Travis',
              last_name: 'Montgomery',
              email: 'travisbm@gmail.com',
-             password_digest: 'password'
+             password: 'password'
 )
 
 25.times do |n|
@@ -12,7 +12,7 @@ User.create!(first_name: 'Travis',
   User.create!(first_name: first_name,
                last_name: last_name,
                email: email,
-               password_digest: password
+               password: password
   )
 end
 

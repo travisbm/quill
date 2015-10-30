@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+
+gem 'bcrypt'
 # Faker
 gem 'faker'
 # Bootstrap
