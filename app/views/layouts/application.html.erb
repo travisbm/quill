@@ -16,17 +16,25 @@
         </a>
       </div>
       <div class="navbar-header">
-        <button type="button" class="btn btn-default navbar-btn">Log In</button>
-        <button type="button" class="btn btn-default navbar-btn">Groups</button>
-        <button type="button" class="btn btn-default navbar-btn">Conversations</button>
+        <% if logged_in? %>
+          <%= link_to 'Log out', logout_path, :class => "btn btn-default navbar-btn", :method => :delete %>
+          <%= link_to 'Profile', current_user, :class => "btn btn-default navbar-btn" %>
+        <% else %>
+          <%= link_to 'Log in', login_path, :class => "btn btn-default navbar-btn" %>
+        <% end %>
       </div>
       <div>
-        <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Travis Montgomery</a></p>
+        <% if logged_in? %>
+          <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= current_user.full_name %></a></p>
+        <% end %>
       </div>
     </div>
   </nav>
 
   <body>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
 
   <%= yield %>
 
