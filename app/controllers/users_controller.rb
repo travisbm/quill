@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         flash[:success] = "Welcome to Quill!"
-        login @user
+        log_in @user
         format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
       else
