@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
                                   foreign_key: 'follower_id',
                                   dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :active_relationships, source: :follower
 
   def full_name
     "#{first_name} #{last_name}"
