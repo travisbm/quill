@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="row">
+      <div class="col-md-12 user-info">
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading"><%= @user.full_name %></div>
+            <ul class="list-group">
+              <li class="list-group-item">Email: <%= @user.email %></li>
+              <li class="list-group-item">Following: <%= @user.following.count %></li>
+              <li class="list-group-item">Followers: <%= @user.followers.count %></li>
+            </ul>
+        </div>
+        <%= render 'follow_form' if logged_in? %>
+      </div>
+    </div>
+  </div> <!-- End of 3-col div -->
+
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate %>
+    <% end %>
+  </div>
+  
+</div>

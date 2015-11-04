@@ -8,8 +8,8 @@
           <div class="panel-heading"><%= @user.full_name %></div>
             <ul class="list-group">
               <li class="list-group-item">Email: <%= @user.email %></li>
-              <li class="list-group-item">Following: <%= @user.following.count %></li>
-              <li class="list-group-item">Followers: <%= @user.followers.count %></li>
+              <li class="list-group-item"><a href="<%= following_user_path(@user) %>"> Following: <%= @user.following.count %></a></li>
+              <li class="list-group-item"><a href="<%= followers_user_path(@user) %>"> Followers: <%= @user.followers.count %></a></li>
             </ul>
         </div>
         <%= render 'follow_form' if logged_in? %>
@@ -25,12 +25,14 @@
           <div class="panel-heading">Trending Conversations</div>
 
           <!-- List group -->
-          <% Conversation.all.each do |conversation| %>
+          <% @conversations = Conversation.paginate(:page => params[:page], :per_page => 10).order('created_at DESC') %>
+          <% @conversations.each do |conversation| %>
             <ul class="list-group" data-link="<%= conversation_path(conversation) %>">
               <li class="list-group-item"><%= conversation.title %></li>
             </ul>
           <% end %>
         </div>
+        <%= will_paginate @conversations %>
       </div>
     </div>
   </div>
