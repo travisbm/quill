@@ -1,4 +1,5 @@
 <div class="row">
+
   <div class="col-md-3">
     <div class="row">
       <div class="col-md-12 user-info">
@@ -16,14 +17,21 @@
     </div>
   </div> <!-- End of 3-col div -->
 
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-        <%= render @users %>
-      </ul>
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading"><%= @title %></div>
+          <% if @users.any? %>
+            <ul class="list-group">
+              <%= render @users %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
       <%= will_paginate %>
-    <% end %>
+    </div>
   </div>
-  
+
 </div>
