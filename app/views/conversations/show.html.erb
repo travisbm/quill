@@ -36,12 +36,14 @@
           <div class="panel-heading">Posts</div>
 
           <!-- List group -->
-          <% @conversation.posts.each do |post| %>
+          <% @posts = @conversation.posts.paginate(:page => params[:page], :per_page => 5) %>
+          <% @posts.each do |post| %>
             <ul class="list-group">
               <li class="list-group-item"><%= post.body %></li>
             </ul>
           <% end %>
         </div>
+        <%= will_paginate @posts %>
       </div>
     </div>
   </div>
