@@ -1,0 +1,23 @@
+<div class="col-md-9">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Recent Posts</div>
+
+
+        <!-- List group -->
+        <% @posts = @user.posts.paginate(:page => params[:page], :per_page => 5).order('created_at DESC') %>
+        <% @posts.each do |post| %>
+          <ul class="list-group" data-link="<%= post_path(post) %>">
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading"><%= @user.full_name %></h4>
+              <p class="list-group-item-text"><%= post.body %></p>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <%= will_paginate @posts %>
+    </div>
+  </div>
+</div>

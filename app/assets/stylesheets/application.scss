@@ -16,10 +16,14 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .navbar-text{
-   padding-right: 10px;
- }
+.navbar-default{
+  
+}
 
- a:hover{
-   background-color: #F8F8F8;
- }
+.navbar-text{
+  padding-right: 10px;
+}
+
+a:hover{
+  background-color: #F8F8F8;
+}

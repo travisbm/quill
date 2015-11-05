@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 </head>
 <div class="container">
 
@@ -17,15 +19,15 @@
       </div>
       <div class="navbar-header">
         <% if logged_in? %>
-          <%= link_to 'Log out', logout_path, :class => "btn btn-default navbar-btn", :method => :delete %>
-          <%= link_to 'Profile', current_user, :class => "btn btn-default navbar-btn" %>
-        <% else %>
-          <%= link_to 'Log in', login_path, :class => "btn btn-default navbar-btn" %>
+          <p class="navbar-text navbar-left"><%= link_to 'Profile', current_user %></p>
+          <p class="navbar-text navbar-left"><%= link_to 'Groups', groups_path %></p>
         <% end %>
       </div>
       <div>
         <% if logged_in? %>
-          <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= current_user.full_name %></a></p>
+          <p class="navbar-text navbar-right"><%= link_to 'Log out', logout_path, :method => :delete %></p>
+        <% else %>
+          <p class="navbar-text navbar-right"><%= link_to 'Log in', login_path %></p>
         <% end %>
       </div>
     </div>

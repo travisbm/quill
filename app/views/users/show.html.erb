@@ -2,75 +2,18 @@
 
   <div class="col-md-3">
     <div class="row">
-      <div class="col-md-12 user-info">
-        <div class="panel panel-default">
-          <!-- Default panel contents -->
-          <div class="panel-heading"><%= @user.full_name %></div>
-            <ul class="list-group">
-              <li class="list-group-item">Email: <%= @user.email %></li>
-              <li class="list-group-item"><a href="<%= following_user_path(@user) %>"> Following: <%= @user.following.count %></a></li>
-              <li class="list-group-item"><a href="<%= followers_user_path(@user) %>"> Followers: <%= @user.followers.count %></a></li>
-            </ul>
-        </div>
+      <div class="col-md-12">
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section>
         <%= render 'follow_form' if logged_in? %>
       </div>
     </div>
   </div> <!-- End of 3-col div -->
 
-  <div class="col-md-5">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="panel panel-default">
-          <!-- Default panel contents -->
-          <div class="panel-heading">Trending Conversations</div>
-
-          <!-- List group -->
-          <% @conversations = Conversation.paginate(:page => params[:page], :per_page => 10).order('created_at DESC') %>
-          <% @conversations.each do |conversation| %>
-            <ul class="list-group" data-link="<%= conversation_path(conversation) %>">
-              <li class="list-group-item"><%= conversation.title %></li>
-            </ul>
-          <% end %>
-        </div>
-        <%= will_paginate @conversations %>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="row">
-      <div class="col-md-12">
-          <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Groups</div>
-
-            <!-- List group -->
-            <% @user.groups.each do |group| %>
-              <ul class="list-group" data-link="<%= group_path(group) %>">
-                <li class="list-group-item"><%= group.name %></li>
-              </ul>
-            <% end %>
-          </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <table class="table table-border table-hover conversations-table">
-
-          <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Conversations</div>
-
-            <!-- List group -->
-            <% @user.conversations.each do |conversation| %>
-              <ul class="list-group" data-link="<%= conversation_path(conversation) %>">
-                <li class="list-group-item"><%= conversation.title %></li>
-              </ul>
-            <% end %>
-          </div>
-      </div>
-    </div>
-  </div>
+  <%= render 'shared/user_posts' %>
 
 </div>

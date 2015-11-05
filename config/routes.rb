@@ -9,11 +9,15 @@ Rails.application.routes.draw do
   resources :conversations
   resources :users
   resources :groups
-  resources :user_groups
+  # resources :user_groups
   resources :users do
     member do
       get :following, :followers
     end
+  end
+
+  resources :users do
+    resources :groups
   end
 
   resources :relationships,       only: [:create, :destroy]

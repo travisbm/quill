@@ -39,7 +39,7 @@ end
 
 200.times do
   title = Faker::Lorem.word
-  body = Faker::Lorem.paragraphs(3)
+  body = Faker::Lorem.paragraphs(3).join(" ")
   user_id = rand(1..26)
   conversation_id = rand(1..15)
 
@@ -69,6 +69,6 @@ end
 users = User.all
 user  = users.first
 following = users[2..26]
-followers = users[10..26]
+followers = users[3..26]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
