@@ -1,19 +1,19 @@
 <div class="col-md-9">
-      <div class="post-heading">
-        <h4>Recent Posts</h4>
-      </div>
+  <div class="post-heading">
+    <h4>Recent Posts</h4>
+  </div>
 
-      <div class="list-group">
-        <% @posts = @user.posts.paginate(:page => params[:page], :per_page => 4).order('created_at DESC') %>
-        <% @posts.each do |post| %>
-          <div class="list-group-card">
-            <a href="/posts/<%= post.id %>" class="list-group-item">
-              <h4><%= post.title %></h4>
-              <p class="list-group-item-text"><%= post.body %></p>
-              <h5 class="list-group-item-heading"><%= @user.full_name %></h5>
-            </a>
-          </div>
-        <% end %>
+  <div class="list-group">
+    <% @posts = @user.posts.paginate(:page => params[:page], :per_page => 4).order('created_at DESC') %>
+    <% @posts.each do |post| %>
+      <div class="list-group-card">
+        <a href="/posts/<%= post.id %>" class="list-group-item">
+          <h4><%= post.title %></h4>
+          <p class="list-group-item-text"><%= post.body %></p>
+          <h5 class="list-group-item-heading"><%= @user.full_name %></h5>
+        </a>
       </div>
-      <%= will_paginate @posts %>
+    <% end %>
+  </div>
+  <%= will_paginate @posts %>
 </div>

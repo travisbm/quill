@@ -16,6 +16,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.container{
+  font-family: 'Dosis', sans-serif;
+}
+
 .navbar-default{
   background-color: white;
 }
