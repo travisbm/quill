@@ -17,13 +17,21 @@
  @import "bootstrap";
 
 .navbar-default{
-  
+  background-color: white;
 }
 
-.navbar-text{
+.log-in{
   padding-right: 10px;
 }
 
+.site-name{
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
+  font-size: 24px;
+  color: blue;
+}
+
 a:hover{
-  background-color: #F8F8F8;
+  background-color: white;
+  text-decoration: none;
 }

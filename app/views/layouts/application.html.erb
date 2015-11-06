@@ -13,9 +13,12 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img alt="Brand" src="/assets/ink6.png">
         </a>
+      </div>
+      <div class="navbar-header">
+        <h4 class="navbar-text site-name">Quill</h4>
       </div>
       <div class="navbar-header">
         <% if logged_in? %>
@@ -25,9 +28,7 @@
       </div>
       <div>
         <% if logged_in? %>
-          <p class="navbar-text navbar-right"><%= link_to 'Log out', logout_path, :method => :delete %></p>
-        <% else %>
-          <p class="navbar-text navbar-right"><%= link_to 'Log in', login_path %></p>
+          <p class="navbar-text navbar-right log-in"><%= link_to 'Log out', logout_path, :method => :delete %></p>
         <% end %>
       </div>
     </div>

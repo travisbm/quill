@@ -1,6 +1,5 @@
-
-<div class="col-md-12">
-  <div class="row">
+<div class="row">
+  <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading"><strong>Conversation Title:</strong> <%= @conversation.title %> </div>
     </div>
@@ -8,43 +7,38 @@
 </div>
 
 <div class="row">
-
   <div class="col-md-2">
-    <div class="row">
-      <div class="col-md-12">
-          <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Members</div>
-
-            <!-- List group -->
-            <% @conversation.users.each do |user| %>
-              <ul class="list-group" data-link="<%= user_path(user) %>">
-                <li class="list-group-item"><%= user.full_name %></li>
-              </ul>
-            <% end %>
-          </div>
-      </div>
+    <div class="post-heading">
+      <h4>Members</h4>
     </div>
+
+    <% @conversation.users.each do |user| %>
+      <div class="list-group-card-members">
+        <a href="/users/<%= user.id %>" class="list-group-item">
+          <p class="list-group-item-text"><%= user.full_name %></p>
+        </a>
+      </div>
+    <% end %>
+    <%= link_to 'New post', new_post_path(conversation_id: params[:id]) %>
   </div>
 
   <div class="col-md-10">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="panel panel-default">
-          <!-- Default panel contents -->
-          <div class="panel-heading">Posts</div>
-
-          <!-- List group -->
-          <% @posts = @conversation.posts.paginate(:page => params[:page], :per_page => 5) %>
-          <% @posts.each do |post| %>
-            <ul class="list-group">
-              <li class="list-group-item"><%= post.body %></li>
-            </ul>
-          <% end %>
-        </div>
-        <%= will_paginate @posts %>
-      </div>
+    <div class="post-heading">
+      <h4>Posts</h4>
     </div>
+
+    <div class="list-group">
+      <% @posts = @conversation.posts.paginate(:page => params[:page], :per_page => 5).order('created_at DESC') %>
+      <% @posts.each do |post| %>
+        <div class="list-group-card">
+          <a href="/posts/<%= post.id %>" class="list-group-item">
+            <h4><%= post.title %></h4>
+            <p class="list-group-item-text"><%= post.body %></p>
+            <h5 class="list-group-item-heading"><%= post.user.full_name %></h5>
+          </a>
+        </div>
+      <% end %>
+    </div>
+    <%= will_paginate @posts %>
   </div>
-  <%= link_to 'New post', new_post_path %>
-</row>
+</div>
