@@ -10,15 +10,15 @@
   </div>
 
   <div class="col-md-9">
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading"><%= @title %></div>
-      <% if @users.any? %>
-        <ul class="list-group">
-          <%= render @users %>
-        </ul>
-      <% end %>
+    <div class="post-heading">
+      <h4><%= @title %></h4>
     </div>
+
+    <% if @users.any? %>
+      <div class="list-group">
+        <%= render @users %>
+      </div>
+    <% end %>
     <%= will_paginate %>
   </div>
 </div>

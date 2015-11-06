@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :posts
   has_many :conversations, through: :posts
+  has_many :conversations, through: :groups
   has_many :user_groups
   has_many :groups, through: :user_groups
   has_many :comments

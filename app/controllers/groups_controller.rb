@@ -28,6 +28,10 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
+        UserGroup.create!(
+          user_id: current_user.id,
+          group_id: @group.id
+          )
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
