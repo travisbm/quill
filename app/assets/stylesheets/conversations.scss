@@ -4,3 +4,11 @@
 .list-group-item{
   padding-top: 20px;
 }
+
+.author{
+  display: inline-block;
+}
+
+.author.date{
+  float: right;
+}
