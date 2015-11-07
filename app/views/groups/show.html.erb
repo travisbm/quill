@@ -19,12 +19,14 @@
         </a>
       </div>
     <% end %>
-    <%= link_to 'New Conversation', new_conversation_path(group_id: params[:id]) %>
   </div>
 
   <div class="col-md-10">
-    <div class="post-heading">
+    <div class="post-heading list-header">
       <h4>Conversations</h4>
+    </div>
+    <div class="list-header button">
+      <%= link_to 'New Conversation', new_conversation_path(group_id: params[:id]), :class => "btn btn-default" %>
     </div>
 
     <% @group.conversations.each do |conversation| %>

@@ -16,6 +16,14 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.list-header{
+  display: inline-block;
+}
+
+.list-header.button{
+  float: right;
+}
+
 .container{
   font-family: 'Dosis', sans-serif;
 }
