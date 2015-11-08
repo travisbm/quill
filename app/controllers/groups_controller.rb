@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = current_user.groups.all
+    @groups = Group.all
   end
 
   # GET /groups/1

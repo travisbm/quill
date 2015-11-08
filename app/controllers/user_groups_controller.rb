@@ -28,7 +28,7 @@ class UserGroupsController < ApplicationController
 
     respond_to do |format|
       if @user_group.save
-        format.html { redirect_to @user_group, notice: 'User group was successfully created.' }
+        format.html { redirect_to :back, notice: 'User group was successfully created.' }
         format.json { render :show, status: :created, location: @user_group }
       else
         format.html { render :new }

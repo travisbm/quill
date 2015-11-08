@@ -25,9 +25,20 @@
     <div class="post-heading list-header">
       <h4>Conversations</h4>
     </div>
-    <div class="list-header button">
-      <%= link_to 'New Conversation', new_conversation_path(group_id: params[:id]), :class => "btn btn-default" %>
-    </div>
+
+    <% if current_user.groups.include?(Group.find(params[:id]))%>
+
+      <div class="list-header button">
+        <%= link_to 'New Conversation', new_conversation_path(group_id: params[:id]), :class => "btn btn-default" %>
+      </div>
+
+    <% else %>
+
+      <div class="list-header button">
+        <%= button_to 'Join Group', {:controller => "user_groups", :action => "create", :user_group => {:group_id => params[:id], :user_id => current_user.id}}, class: "btn btn-default" %>
+      </div>
+
+    <% end %>
 
     <% @group.conversations.each do |conversation| %>
       <div class="list-group-card-conversations">
