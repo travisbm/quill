@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
+
+gem 'react-rails'
+
+gem 'sprockets-coffee-react'
+
 gem 'will_paginate'
 
 gem 'bootstrap-will_paginate'
