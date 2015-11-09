@@ -16,7 +16,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.container{
+.body{
   background-color: #F0F0F8;
 }
 
@@ -30,6 +30,14 @@
    margin-bottom: 2em;
    box-shadow: 4px 4px 5px #888888;
    border-radius: 0;
+}
+
+.list-group-item.post h5{
+  color: gray;
+}
+
+.list-group-item.post p{
+  padding-top: 5px;
 }
 
 .btn {

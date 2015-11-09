@@ -13,8 +13,11 @@
     <% @posts.each do |post| %>
       <div class="list-group-card">
         <a class="list-group-item post">
-          <h4><%= post.title %></h4>
+          <h3><strong><%= post.title %></strong></h3>
           <p class="list-group-item-text"><%= post.body %></p>
+          <!-- <p class="list-group-item-text"><%# truncate(post.body, length: 100) do %>
+                 <%# link_to 'Read More', post_path(post) %>
+                <%# end %></p> -->
           <h5 class="author"><%= post.user.full_name %></h5><h5 class="author date"><%= post.created_at.strftime("%b %d, %Y") %></h5>
         </a>
       </div>

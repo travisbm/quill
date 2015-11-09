@@ -5,7 +5,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    respond_to do |format|
+      format.html do
+        @users = User.all
+      end
+      format.json do
+        render json: User.all.to_json(methods: [:full_name])
+      end
+    end
   end
 
   # GET /users/1

@@ -9,41 +9,40 @@
   <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 </head>
+  <body class="body">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">
+            <%= image_tag('ink6.png') %>
+          </a>
+        </div>
+        <div class="navbar-header">
+          <h4 class="navbar-text site-name">Quill</h4>
+        </div>
+        <div class="navbar-header">
+          <% if logged_in? %>
+            <p class="navbar-text navbar-left"><%= link_to 'Profile', current_user %></p>
+            <p class="navbar-text navbar-left"><%= link_to 'Groups', groups_path %></p>
+            <p class="navbar-text navbar-left"><%= link_to 'Users', users_path %></p>
+          <% end %>
+        </div>
+        <div>
+          <% if logged_in? %>
+            <p class="navbar-text navbar-right log-in"><%= link_to 'Log out', logout_path, :method => :delete %></p>
+          <% end %>
+        </div>
+      </div>
+    </nav>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        <%= image_tag('ink6.png') %>
-      </a>
-    </div>
-    <div class="navbar-header">
-      <h4 class="navbar-text site-name">Quill</h4>
-    </div>
-    <div class="navbar-header">
-      <% if logged_in? %>
-        <p class="navbar-text navbar-left"><%= link_to 'Profile', current_user %></p>
-        <p class="navbar-text navbar-left"><%= link_to 'Groups', groups_path %></p>
-        <p class="navbar-text navbar-left"><%= link_to 'Users', users_path %></p>
-      <% end %>
-    </div>
-    <div>
-      <% if logged_in? %>
-        <p class="navbar-text navbar-right log-in"><%= link_to 'Log out', logout_path, :method => :delete %></p>
-      <% end %>
-    </div>
-  </div>
-</nav>
+    <div class="container">
 
-  <div class="container">
-    <body>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
 
-    <%= yield %>
+      <%= yield %>
 
-    </body>
-  </div>
-  
+    </div>
+  </body>
 </html>

@@ -13,6 +13,7 @@ var Search = React.createClass({
       dataType: 'JSON',
       method: 'GET'
     }).done(function (response) {
+      console.log(response);
       //change state from empty to return all users
       this.setState({
         all_users: response,
@@ -34,8 +35,7 @@ var Search = React.createClass({
           {this.state.filtered_users.map(function (user) {
             return (
               <a href={"/users/" + user.id} className="list-group-item list">
-                <p className="list-group-item-text user-list">{ user.first_name }</p>
-                <p className="list-group-item-text user-list">{ user.last_name }</p>
+                <p className="list-group-item-text user-list">{ user.full_name }</p>
               </a>
             );
           })}
