@@ -33,8 +33,9 @@ var Search = React.createClass({
         <div className="list-group-card-users">
           {this.state.filtered_users.map(function (user) {
             return (
-              <a href={"/users/" + user.id} className="list-group-item">
+              <a href={"/users/" + user.id} className="list-group-item list">
                 <p className="list-group-item-text user-list">{ user.first_name }</p>
+                <p className="list-group-item-text user-list">{ user.last_name }</p>
               </a>
             );
           })}

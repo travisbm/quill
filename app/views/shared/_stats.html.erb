@@ -1,15 +1,18 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <ul class="list-group">
-    <li class="list-group-item">
-      <span class="badge"><%= @user.groups.count %></span>
-      Groups
-    </li>
-    <li class="list-group-item">
-      <span class="badge"><%= @user.posts.count %></span>
-      Posts
-    </li>
-  </ul>
+  <div>
+    <a href="/users/<%= params[:id] %>/groups">
+      <h3 class="user-stats">Groups</h3>
+      <p class="user-stats count"><%= @user.groups.count %></p>
+    </a>
+  </div>
+  <div>
+    <a href="/users/<%= params[:id] %>/posts">
+      <h3 class="user-stats">Posts</h3>
+      <p class="user-stats count"><%= @user.posts.count %></p>
+    </a>
+  </div>
+
   <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat">
       <%= @user.following.count %>

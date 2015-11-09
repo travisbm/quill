@@ -64,6 +64,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def posts
+    @posts = User.find(params[:id]).posts.paginate(page: params[:page], :per_page => 5).order('created_at DESC')
+  end
+
+  def groups
+    @groups = User.find(params[:id]).groups.paginate(page: params[:page], :per_page => 5).order('created_at DESC')
+  end
+
   def following
     @title = 'Following'
     @user = User.find(params[:id])

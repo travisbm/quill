@@ -19,7 +19,15 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :groups
+    member do
+      get :posts
+    end
+  end
+
+  resources :users do
+    member do
+      get :groups
+    end
   end
 
   resources :relationships,       only: [:create, :destroy]

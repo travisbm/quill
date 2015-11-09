@@ -33,11 +33,13 @@ var Search_Groups = React.createClass({
         <div className="list-group-card-groups">
           {this.state.filtered_groups.map(function (group) {
             return (
-              <a href={"/groups/" + group.id} className="list-group-item">
+              <a href={"/groups/" + group.id} className="list-group-item list">
                 <p className="list-group-item-text group-list">{ group.name}</p>
               </a>
             );
           })}
+        </div>
+        <div class="list-header button">
         </div>
       </div>
     );

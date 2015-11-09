@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.user-stats{
+  display: inline-block;
+}
+
 .list-group-item-text.user-list{
   display: inline-block;
 }
@@ -11,11 +15,8 @@
 }
 
 .list-group-card{
+  border: none;
   padding-top: 10px;
-}
-
-.list-group-item{
-  text-align: left;
 }
 
 .list-group-item h5{
@@ -41,7 +42,8 @@
     }
     &:hover {
       text-decoration: none;
-      color: blue;
+      color: #297DF7;
+;
     }
   }
   strong {

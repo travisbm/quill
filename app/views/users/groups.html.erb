@@ -1,0 +1,12 @@
+<div class="col-md-10 col-md-offset-1">
+  <h2><%= User.find(params[:id]).full_name %></h2>
+
+  <% @groups.each do |group| %>
+    <div class="list-group-card">
+      <a href="/groups/<%= group.id %>" class="list-group-item">
+        <h4><%= group.name %></h4>
+      </a>
+    </div>
+  <% end %>
+  <%= will_paginate @groups %>
+</div>

@@ -5,14 +5,14 @@
   <% if current_user.following?(user) || current_user?(user) %>
 
   <div class="post-heading">
-    <h4>Recent Posts</h4>
+    <h2>Recent Posts</h2>
   </div>
 
   <div class="list-group">
     <% @posts = @user.posts.paginate(:page => params[:page], :per_page => 4).order('created_at DESC') %>
     <% @posts.each do |post| %>
       <div class="list-group-card">
-        <a href="/posts/<%= post.id %>" class="list-group-item">
+        <a class="list-group-item post">
           <h4><%= post.title %></h4>
           <p class="list-group-item-text"><%= post.body %></p>
           <h5 class="author"><%= post.user.full_name %></h5><h5 class="author date"><%= post.created_at.strftime("%b %d, %Y") %></h5>
@@ -30,7 +30,7 @@
 
   <% @user.groups.each do |group| %>
     <div class="list-group-card-groups">
-      <a href="/groups/<%= group.id %>" class="list-group-item">
+      <a href="/groups/<%= group.id %>" class="list-group-item list">
         <p class="list-group-item-text"><%= group.name %></p>
       </a>
     </div>

@@ -16,6 +16,70 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.container{
+  background-color: #F0F0F8;
+}
+
+.list-group-item{
+  border-radius: 0;
+}
+
+.list-group-item.post{
+   text-align: left;
+   background: white;
+   margin-bottom: 2em;
+   box-shadow: 4px 4px 5px #888888;
+   border-radius: 0;
+}
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #297DF7;
+    color: #ffffff;
+}
+
+.btn.btn-primary {
+    background: #297DF7;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #94CAFF;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.col-md-10.col-md-offset-1{
+  padding-top: 15px;
+}
+
+.list-group-item.list{
+  margin-bottom: 1em;
+  border-radius: 0;
+}
+
+.user-name-main{
+  color: #297DF7;
+}
+
+.stats{
+  padding-bottom: 15px;
+}
 .list-header{
   display: inline-block;
 }
@@ -32,6 +96,10 @@
   background-color: white;
 }
 
+.navbar a:hover{
+  background-color: white;
+}
+
 .log-in{
   padding-right: 10px;
 }
@@ -44,6 +112,7 @@
 }
 
 a:hover{
-  background-color: white;
+  background-color: #F0F0F8;
   text-decoration: none;
+  color: #297DF7;
 }

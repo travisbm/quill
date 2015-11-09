@@ -1,0 +1,14 @@
+<div class="col-md-10 col-md-offset-1">
+  <h2><%= User.find(params[:id]).full_name %></h2>
+
+  <% @posts.each do |post| %>
+    <div class="list-group-card">
+      <a class="list-group-item post">
+        <h3><strong><%= post.title %></strong></h3>
+        <p class="list-group-item-text"><%= post.body %></p>
+        <h5 class="author"><%= post.user.full_name %></h5><h5 class="author date"><%= post.created_at.strftime("%b %d, %Y") %></h5>
+      </a>
+    </div>
+  <% end %>
+  <%= will_paginate @posts%>
+</div>
