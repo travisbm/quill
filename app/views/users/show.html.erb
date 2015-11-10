@@ -10,7 +10,7 @@
     <%= render 'follow_form' if logged_in? %>
     <div>
       <div class="post-heading list-header">
-        <h4>Recent Conversations</h4>
+        <h3>Recent Conversations</h3>
       </div>
 
       <% @conversations = @user.conversations.limit(5).order('updated_at DESC') %>
