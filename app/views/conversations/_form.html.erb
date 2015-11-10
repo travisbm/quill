@@ -20,7 +20,7 @@
         <%= f.text_field :title, class: 'form-control' %>
       </div>
       <%= link_to 'Back', group_path(Group.find(params[:group_id])), class: 'btn btn-default' %>
-      <%= f.submit 'Submit', class: 'btn btn-default' %>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
       <%= f.hidden_field :group_id, :value => params[:group_id] %>
     </form>
   </div>
