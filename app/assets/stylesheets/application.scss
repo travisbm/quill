@@ -29,11 +29,11 @@ p.navbar-text.navbar-left{
 }
 
 .body{
-  background: url(greyzz.png) repeat 0 0;
+  background: image_url('greyzz.png') repeat 0 0;
 }
 
 .bg-image {
-  background: url(Pen-pad.jpg) no-repeat center center fixed;
+  background: image_url('Pen-pad.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
