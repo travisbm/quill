@@ -4,6 +4,18 @@
 
 .user-stats{
   display: inline-block;
+
+  &.count {
+    font-size: 45px;
+    line-height: 40px;
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+.list-group-item-text.user-name{
+  font-size: 18px;
 }
 
 .list-group-item-text.user-list{
@@ -31,6 +43,9 @@
   overflow: auto;
   margin-top: 0;
   padding: 0;
+  h3 {
+    margin: 0;
+  }
   a {
     float: left;
     padding: 0 10px;
@@ -42,7 +57,7 @@
     }
     &:hover {
       text-decoration: none;
-      color: #297DF7;
+      color: #333333;
 ;
     }
   }

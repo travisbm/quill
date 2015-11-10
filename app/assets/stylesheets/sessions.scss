@@ -7,13 +7,9 @@
 }
 
 .landing{
-  height: 500px;
-  background-image: image-url('Pen-pad.jpg');
   background-size: cover;
-  border: 1px solid black;
   header {
     margin-top: 0;
-    height: 100%;
   }
   h1 {
     font-family: 'Dancing Script', cursive;
@@ -23,8 +19,18 @@
     padding-top: 30px;
     color: white;
   }
+  h4 {
+    font-size: 25px;
+    margin: 0 auto;
+    width: 75%;
+    padding-top: 15px;
+    color: white;
+  }
 }
 
 .login-form{
-  padding-top: 20px;
+  padding: 20px;
+  margin-top: 60px;
+  background-color: rgba(255,255,255,.75);
+
 }

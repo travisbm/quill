@@ -26,7 +26,7 @@ var Search = React.createClass({
     return (
       <div className="col-md-10 col-md-offset-1">
         <p>
-          <input className='form-control' type='text'
+          <input className='form-control search' type='text'
             onChange={this.handleChange} value={this.state.search}
             placeholder='search users' />
         </p>

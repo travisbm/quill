@@ -1,17 +1,13 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <div>
     <a href="/users/<%= params[:id] %>/groups">
+      <p class="user-stats count"><%= @user.groups.count %></p><br/>
       <h3 class="user-stats">Groups</h3>
-      <p class="user-stats count"><%= @user.groups.count %></p>
     </a>
-  </div>
-  <div>
     <a href="/users/<%= params[:id] %>/posts">
+      <p class="user-stats count"><%= @user.posts.count %></p><br/>
       <h3 class="user-stats">Posts</h3>
-      <p class="user-stats count"><%= @user.posts.count %></p>
     </a>
-  </div>
 
   <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat">

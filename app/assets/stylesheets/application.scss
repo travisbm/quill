@@ -16,8 +16,28 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.user-name-main{
+  padding-bottom: 15px;
+}
+
+p.navbar-text.navbar-left{
+  font-size: 20px;
+}
+
+.form-control.search{
+  height: 75px;
+}
+
 .body{
-  background-color: #F0F0F8;
+  background: url(greyzz.png) repeat 0 0;
+}
+
+.bg-image {
+  background: url(Pen-pad.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .list-group-item{
@@ -28,7 +48,6 @@
    text-align: left;
    background: white;
    margin-bottom: 2em;
-   box-shadow: 4px 4px 5px #888888;
    border-radius: 0;
 }
 
@@ -120,7 +139,7 @@
 }
 
 a:hover{
-  background-color: #F0F0F8;
+  background-color: transparent;
   text-decoration: none;
   color: #297DF7;
 }
