@@ -12,12 +12,9 @@
     <% @posts = @user.posts.paginate(:page => params[:page], :per_page => 4).order('created_at DESC') %>
     <% @posts.each do |post| %>
       <div class="list-group-card">
-        <a class="list-group-item post">
+        <a href="/conversations/<%= post.conversation_id %>"class="list-group-item post">
           <h3><strong><%= post.title %></strong></h3>
           <p class="list-group-item-text"><%= post.body %></p>
-          <!-- <p class="list-group-item-text"><%# truncate(post.body, length: 100) do %>
-                 <%# link_to 'Read More', post_path(post) %>
-                <%# end %></p> -->
           <h5 class="author"><%= post.user.full_name %></h5><h5 class="author date"><%= post.created_at.strftime("%b %d, %Y") %></h5>
         </a>
       </div>

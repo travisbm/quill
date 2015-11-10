@@ -3,7 +3,7 @@
 
   <% @posts.each do |post| %>
     <div class="list-group-card">
-      <a class="list-group-item post">
+      <a href="/conversations/<%= post.conversation_id %>" class="list-group-item post">
         <h3><strong><%= post.title %></strong></h3>
         <p class="list-group-item-text"><%= post.body %></p>
         <h5 class="author"><%= post.user.full_name %></h5><h5 class="author date"><%= post.created_at.strftime("%b %d, %Y") %></h5>

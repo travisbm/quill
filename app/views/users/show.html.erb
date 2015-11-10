@@ -8,6 +8,20 @@
       <%= render 'shared/stats' %>
     </section>
     <%= render 'follow_form' if logged_in? %>
+    <div>
+      <div class="post-heading list-header">
+        <h4>Recent Conversations</h4>
+      </div>
+
+      <% @conversations = @user.conversations.limit(5).order('updated_at DESC') %>
+      <% @conversations.each do |conversation| %>
+        <div class="list-group-card-groups">
+          <a href="/conversations/<%= conversation.id %>" class="list-group-item list">
+            <p class="list-group-item-text"><%= conversation.title %></p>
+          </a>
+        </div>
+      <% end %>
+    </div>
   </div> <!-- End of 3-col div -->
 
   <%= render 'shared/user_posts' %>

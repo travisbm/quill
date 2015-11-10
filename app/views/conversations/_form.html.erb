@@ -19,8 +19,8 @@
         <%= f.label :title %><br>
         <%= f.text_field :title, class: 'form-control' %>
       </div>
-      <%= f.submit 'Submit', class: 'btn btn-default' %>
       <%= link_to 'Back', group_path(Group.find(params[:group_id])), class: 'btn btn-default' %>
+      <%= f.submit 'Submit', class: 'btn btn-default' %>
       <%= f.hidden_field :group_id, :value => params[:group_id] %>
     </form>
   </div>
