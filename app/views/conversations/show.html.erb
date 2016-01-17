@@ -25,7 +25,7 @@
       <% @posts = @conversation.posts.paginate(:page => params[:page], :per_page => 5).order('created_at DESC') %>
       <% @posts.each do |post| %>
         <div class="list-group-card">
-          <a class="list-group-item post">
+          <a class="list-group-item post list">
             <h3><strong><%= post.title %></strong></h3>
             <p class="list-group-item-text"><%= post.body %></p>
             <h5 class="author"><%= post.user.full_name %></h5><h5 class="author date"><%= post.created_at.strftime("%b %d, %Y") %></h5>
