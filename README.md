@@ -14,6 +14,6 @@ README describes how to interact with the Quill Rails app database.
 
 ***
 
-![Alt Image Text](https://dl.dropboxusercontent.com/u/19833497/Quill.pdf)
+![Alt Image Text](https://www.dropbox.com/s/f8nis0jm6mdppp3/Quill.png?dl=0)
 
 ***
