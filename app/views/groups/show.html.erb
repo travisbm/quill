@@ -27,6 +27,7 @@
     <% if current_user.groups.include?(Group.find(params[:id]))%>
 
       <div class="list-header button">
+        <%= link_to 'Back', groups_user_path(id: current_user.id), class: 'btn btn-default' %>
         <%= link_to 'New Conversation', new_conversation_path(group_id: params[:id]), :class => "btn btn-primary" %>
       </div>
 

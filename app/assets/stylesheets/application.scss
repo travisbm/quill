@@ -28,6 +28,9 @@
   padding-bottom: 15px;
 }
 
+nav.navbar.navbar-default{
+  border-radius: 0px;
+}
 p.navbar-right{
   margin-top: 20px;
 }
@@ -120,6 +123,7 @@ p.navbar-text.navbar-left{
 .stats{
   padding-bottom: 15px;
 }
+
 .list-header{
   display: inline-block;
 }
@@ -149,6 +153,10 @@ p.navbar-text.navbar-left{
   font-weight: bold;
   font-size: 28px;
   color: blue;
+}
+
+a.list-group-item.post.list{
+  background-color: white;
 }
 
 a:hover{
