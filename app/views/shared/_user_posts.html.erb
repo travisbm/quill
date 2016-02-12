@@ -9,7 +9,9 @@
   </div>
 
   <div class="list-group">
-    <% @posts = @user.posts.paginate(:page => params[:page], :per_page => 4).order('created_at DESC') %>
+
+    <% following_ids = current_user.following.map(&:id) %>
+    <% @posts = Post.where(user_id: following_ids).paginate(:page => params[:page], :per_page => 4).order('created_at DESC') %>
     <% @posts.each do |post| %>
       <div class="list-group-card">
         <a href="/conversations/<%= post.conversation_id %>"class="list-group-item post">
