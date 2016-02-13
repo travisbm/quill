@@ -16,6 +16,19 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.landing{
+  margin-top: 100px;
+}
+
+.landing h1{
+  font-size: 120px;
+  margin-left: 185px;
+}
+
+.landing h4{
+  margin-right: 100px;
+}
+
 .sign_up{
   margin-top: 130px;
 }
