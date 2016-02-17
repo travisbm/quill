@@ -11,30 +11,30 @@
 </head>
   <body class="body">
     <% unless !logged_in? %>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">
-            <%= image_tag('ink6.png') %>
-          </a>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+              <%= image_tag('ink6.png') %>
+            </a>
+          </div>
+          <div class="navbar-header">
+            <h4 class="navbar-text site-name">Quill</h4>
+          </div>
+          <div class="navbar-header">
+            <% if logged_in? %>
+              <p class="navbar-text navbar-left"><%= link_to 'Profile', current_user %></p>
+              <p class="navbar-text navbar-left"><%= link_to 'Groups', groups_path %></p>
+              <p class="navbar-text navbar-left"><%= link_to 'Users', users_path %></p>
+            <% end %>
+          </div>
+          <div>
+            <% if logged_in? %>
+              <p class="navbar-text navbar-right log-in"><%= link_to 'Log out', logout_path, :method => :delete %></p>
+            <% end %>
+          </div>
         </div>
-        <div class="navbar-header">
-          <h4 class="navbar-text site-name">Quill</h4>
-        </div>
-        <div class="navbar-header">
-          <% if logged_in? %>
-            <p class="navbar-text navbar-left"><%= link_to 'Profile', current_user %></p>
-            <p class="navbar-text navbar-left"><%= link_to 'Groups', groups_path %></p>
-            <p class="navbar-text navbar-left"><%= link_to 'Users', users_path %></p>
-          <% end %>
-        </div>
-        <div>
-          <% if logged_in? %>
-            <p class="navbar-text navbar-right log-in"><%= link_to 'Log out', logout_path, :method => :delete %></p>
-          <% end %>
-        </div>
-      </div>
-    </nav>
+      </nav>
     <% end %>
 
     <div class="container">
